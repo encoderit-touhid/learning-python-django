@@ -1,0 +1,17 @@
+{% extends 'book_outlet/base.html' %}
+
+{% block title %} {{ book.title }} - Details {% endblock %}
+
+{% block main_content %}
+<div style="max-width: 600px; margin: 20px auto; padding: 24px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h1 style="margin-top: 0; color: #333;">{{ book.title }}</h1>
+    <hr style="margin-bottom: 20px; border: 0; border-top: 1px solid #ddd;">
+    <p style="font-size: 1.1em; margin: 10px 0;"><strong>Author:</strong> {{ book.author }}</p>
+    <p style="font-size: 1.1em; margin: 10px 0;"><strong>Rating:</strong> {{ book.rating }} / 5</p>
+    <p style="font-size: 1.1em; margin: 10px 0;"><strong>Bestseller:</strong> {% if book.is_bestselling %}Yes{% else %}No{% endif %}</p>
+    
+    <div style="margin-top: 24px;">
+        <a href="{% url 'index' %}" style="display: inline-block; padding: 8px 16px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">&larr; Back to All Books</a>
+    </div>
+</div>
+{% endblock main_content %}  

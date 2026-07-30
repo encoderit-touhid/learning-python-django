@@ -1,0 +1,35 @@
+{% extends 'book_outlet/base.html' %}
+
+{% block title %} all books {% endblock %}
+
+{% block main_content %}
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; padding: 0; list-style: none;">
+    {% for book in books %}
+    {% comment %} <a href="{% url 'show' book.id %}" style="text-decoration: none; color: inherit;">
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">Title: {{ book.title }}</div>
+            <div style="margin-bottom: 4px;">Rating: {{ book.rating }}</div>
+            <div style="margin-bottom: 4px;">Author: {{ book.author }}</div>
+            <div>Is Bestselling: {{ book.is_bestselling }}</div>
+        </div>
+    </a> {% endcomment %}
+
+    <a href="{{book.get_single_permalink }}" style="text-decoration: none; color: inherit;">
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">Title: {{ book.title }}</div>
+            <div style="margin-bottom: 4px;">Rating: {{ book.rating }}</div>
+            <div style="margin-bottom: 4px;">Author: {{ book.author }}</div>
+            <div>Is Bestselling: {{ book.is_bestselling }}</div>
+            <div>Slug: {{ book.slug }}</div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<p>Total number of books: {{total_number}}</p>
+<p>Average rating: {{average_rating.rating__avg}}</p>
+<p>Max Rating: {{average_rating.rating__max}}</p>
+<p>Min Rating: {{average_rating.rating__min}}</p>
+
+{% endblock main_content %}    
