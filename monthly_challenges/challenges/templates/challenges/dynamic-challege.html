@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title  %}{{month_name|title}}{% endblock  %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "challenges/includes/header.css" %}">
+<link rel="stylesheet" href="{% static "challenges/single-challenge.css" %}">
+{% endblock styles %}
+
+{% block heading %}<p>The page is : {{month_name|title}}</p>{% endblock heading %}
+
+{% block content %}
+  {% include "challenges/includes/navigation.html" with data="All challenges" %}
+   <h1>The month: {{month_name | title }}</h1>
+    {% if month_name|lower == "december" %}
+    <p>This month is special : {{text}}</p>
+    {% else %}
+    <p>{{text}}</p>
+    {% endif %}
+  <p>
+    This is try to show dictonary data {{month_dictonary.january}}
+  </p>  
+{% endblock  %}
