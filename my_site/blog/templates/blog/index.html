@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Touhid Blog{% endblock title %} 
+
+{% load static %}
+
+{% block styles %}
+
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+
+{% endblock styles %} 
+
+
+{% block body %}
+
+<section id="welcome">
+  <header>
+    <img src="{% static 'blog/images/coding.jpg' %}" alt="Touhid" />
+    <h2>Touhid Blog</h2>
+  </header>
+  <p>Hi, I am Touhid a developer</p>
+</section>
+<section id="latest-posts">
+  <h2>My Latest Thinking</h2>
+  <ul>
+    {% for post in latest_post %}
+    
+    {% include "blog/layouts/post-grid-single.html" %}
+    
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I do</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla blanditiis
+    commodi modi reiciendis mollitia illo harum eum hic unde in.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quam quas
+    temporibus tempore ipsam eius omnis odio vero beatae corporis.
+  </p>
+</section>
+{% endblock body %}

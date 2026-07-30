@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Title{% endblock title %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app.css' %}" />
+
+    {% block styles %}{% endblock styles %}
+  </head>
+  <body>
+    <header id="main-navigation">
+      <h1>
+        <a href="{% url "index" %}">Touhid Blog</a>
+      </h1>
+      <nav>
+        <a href="{% url "blog-grid" %}">All Blogs</a>
+      </nav>
+    </header>
+    {% block body %}{% endblock body %}
+  </body>
+</html>
